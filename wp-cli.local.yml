@@ -14,3 +14,4 @@ core config:
 
 # This settings must not be changed
 path: wp
+apache_modules: [mod_rewrite]
