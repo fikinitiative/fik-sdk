@@ -1,7 +1,7 @@
 fik-sdk
 =======
 
-Fik Stores Software Development Tools
+Fik Stores Development Tools
 
 1. Create a database and a user with perms on it
 
