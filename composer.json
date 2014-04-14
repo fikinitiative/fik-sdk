@@ -7,7 +7,7 @@
             "vendor/bin/wp core download",
             "vendor/bin/wp core config",
             "vendor/bin/wp core install",
-            "vendor/bin/wp theme install https://github.com/fikinitiative/fik-roots/archive/master.zip --activate",
+            "vendor/bin/wp theme install https://github.com/fikinitiative/fik-roots-sass/archive/master.zip --activate",
             "vendor/bin/wp plugin install https://github.com/wmurphy/fik-dev/archive/master.zip --activate",
             "touch wp/.htaccess",
             "chmod 666 wp/.htaccess",
