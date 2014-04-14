@@ -1,5 +1,19 @@
 {
     "require": {
         "wp-cli/wp-cli": "dev-master"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "vendor/bin/wp core download",
+            "vendor/bin/wp core config",
+            "vendor/bin/wp core install",
+            "vendor/bin/wp theme install https://github.com/fikinitiative/fik-roots/archive/master.zip --activate",
+            "vendor/bin/wp plugin install https://github.com/wmurphy/fik-dev/archive/master.zip --activate",
+            "touch wp/.htaccess",
+            "chmod 666 wp/.htaccess",
+            "vendor/bin/wp rewrite structure '/%year%/%monthnum%/%postname%/' --hard",
+            "mkdir wp/wp-content/uploads/",
+            "chmod -R 777 wp/wp-content/uploads/"
+        ]
     }
 }

@@ -1,0 +1,16 @@
+url: http://fik-sdk.lc
+
+core install:
+    title: 'Fik Stores SDK'
+    admin_user: admin
+    admin_password: admin
+    admin_email: dev@thefik.com
+
+core config:
+    dbname: fiksdk
+    dbuser: fiksdk
+    dbpass: fiksdk
+    dbprefix: fiksdk_
+
+# This settings must not be changed
+path: wp
