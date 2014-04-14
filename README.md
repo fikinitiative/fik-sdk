@@ -38,7 +38,7 @@ Fik Stores Development Tools
 7. Install fik-sdk:
     ```
     cd /path-to-fik-sdk/
-    vendor/composer.phar self-update && vendor/composer install
+    vendor/composer.phar self-update && vendor/composer.phar install
     ```
 
 8. Hooray!! Enjoy your fik-sdk installation on:
