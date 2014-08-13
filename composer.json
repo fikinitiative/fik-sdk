@@ -15,7 +15,9 @@
             "vendor/bin/wp rewrite structure '/%year%/%monthnum%/%postname%/' --hard",
             "mkdir wp/wp-content/uploads/",
             "chmod -R 777 wp/wp-content/uploads/",
-            "vendor/bin/wp post create --post_type=page --post_title='Cart' --post_status=publish"
+            "vendor/bin/wp post create --post_type=page --post_title='Cart' --post_status=publish",
+            "vendor/bin/wp post create --post_type=page --post_title='Store' --post_name='products' --post_status=publish",
+            "cd wp/wp-content/themes/fikinitiative-pith* && npm install && grunt build"
         ]
     }
 }
