@@ -8,7 +8,7 @@
             "vendor/bin/wp core config",
             "vendor/bin/wp db reset --yes",
             "vendor/bin/wp core install",
-            "vendor/bin/wp theme install https://bitbucket.org/fikinitiative/pith/get/7.0.0.zip --activate",
+            "vendor/bin/wp theme install https://github.com/fikinitiative/pith/archive/master.zip --activate",
             "vendor/bin/wp plugin install https://bitbucket.org/fikinitiative/fik-dev/get/master.zip --activate",
             "touch wp/.htaccess",
             "chmod 666 wp/.htaccess",
