@@ -1,15 +1,97 @@
 {
+    "name": "fikinitiative/fik-sdk",
+    "description": "Fik Stores Development Kit",
+    "keywords": [
+        "wordpress", "stack", "fik stores", "wp"
+    ],
+    "support": {
+        "issues": "https://github.com/fikinitiative/fik-sdk/issues"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "wordpress/wordpress",
+                "type": "webroot",
+                "version": "4.1.1",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/WordPress/WordPress.git",
+                    "reference": "4.1.1"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/WordPress/WordPress/archive/master.zip"
+                },
+                "require": {
+                    "fancyguy/webroot-installer": "1.1.0"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "fikinitiative/pith",
+                "type": "wordpress-theme",
+                "version": "dev-master",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/fikinitiative/pith.git",
+                    "reference": "master"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/fikinitiative/pith/archive/master.zip"
+                }
+            }
+        },        
+        {
+            "type": "package",
+            "package": {
+                "name": "fikinitiative/fik-dev",
+                "type": "wordpress-plugin",
+                "version": "dev-master",
+                "source": {
+                    "type": "git",
+                    "url": "https://github.com/fikinitiative/fik-dev.git",
+                    "reference": "master"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "https://github.com/fikinitiative/fik-dev/archive/master.zip"
+                }
+            }
+        },
+        {
+            "type": "composer",
+            "url": "http://wpackagist.org"
+        }
+    ],
     "require": {
-        "wp-cli/wp-cli": "dev-master"
+        "php": ">=5.4",
+        "wp-cli/wp-cli": "0.18.0",
+        "psy/psysh": "v0.3.5",
+        "composer/installers": ">=1.0.21",
+        "wordpress/wordpress": "4.1.1",
+        "fikinitiative/pith": "dev-master",
+        "fikinitiative/fik-dev": "dev-master"
+    },
+    "extra": {
+        "webroot-dir": "wp",
+        "webroot-package": "wordpress/wordpress",
+        "installer-paths": {
+            "wp/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+            "wp/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+            "wp/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+        }
     },
     "scripts": {
         "post-install-cmd": [
-            "vendor/bin/wp core download",
             "vendor/bin/wp core config",
             "vendor/bin/wp db reset --yes",
             "vendor/bin/wp core install",
-            "vendor/bin/wp theme install https://github.com/fikinitiative/pith/archive/master.zip --activate",
-            "vendor/bin/wp plugin install https://bitbucket.org/fikinitiative/fik-dev/get/master.zip --activate",
+            "vendor/bin/wp plugin activate fik-dev",
+            "vendor/bin/wp theme activate pith",
             "touch wp/.htaccess",
             "chmod 666 wp/.htaccess",
             "vendor/bin/wp rewrite structure '/%year%/%monthnum%/%postname%/' --hard",
@@ -17,7 +99,7 @@
             "chmod -R 777 wp/wp-content/uploads/",
             "vendor/bin/wp post create --post_type=page --post_title='Cart' --post_status=publish",
             "vendor/bin/wp post create --post_type=page --post_title='Store' --post_name='products' --post_status=publish",
-            "cd wp/wp-content/themes/pith-master && npm install && grunt build"
+            "cd wp/wp-content/themes/pith && npm install && grunt build"
         ]
     }
 }
